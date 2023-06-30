@@ -16,7 +16,6 @@ function Model(props) {
     useFrame((state, delta) => {
         if (props.path === 'models/earth.gltf' && props.rotating) {
             meshRef.current.rotation.y += delta * rotationSpeed
-            console.log(meshRef.current.rotation.y);
             setTheta((val) => {
                 return val + delta * orbitSpeed
             })
@@ -45,8 +44,6 @@ function Model(props) {
         return (
             <primitive
             onClick= {(e) => {
-                    console.log('clicked');
-                    console.log(e.point);
                     props.setLonLatSub(CartesianToPolar(e.point, 28))
                 }
             }

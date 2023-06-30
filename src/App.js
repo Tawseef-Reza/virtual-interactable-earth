@@ -64,9 +64,9 @@ function App() {
 			<div className='container-fluid'>
 				<div className='row'>
 					<div className='col-md-12 p-0'>
-					<ul class="list-group">
-						<li class="list-group-item">{`Longitude: ${lonLatSub[0]}`}</li>
-						<li class="list-group-item">{`Latitude: ${lonLatSub[1]}`}</li>
+					<ul className="list-group">
+						<li className="list-group-item">{`Longitude: ${lonLatSub[0]}`}</li>
+						<li className="list-group-item">{`Latitude: ${lonLatSub[1]}`}</li>
 					</ul>
 					</div>
 				</div>
@@ -151,13 +151,15 @@ function App() {
 				position={sun ? [0,500,-500 ] : [0, 0 , -100 * EARTH_SCALE]}
 				fov={60}
 				zoom={1.0}
+				far = {6000}
 				/>
 				:
 				<animated.group position={cameraSpring.position}>
 					<PerspectiveCamera
 					makeDefault
 					fov={60}
-					zoom={1}
+					zoom={1.0}
+					far = {6000}
 					/>
 				</animated.group>
 			}
