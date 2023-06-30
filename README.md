@@ -1,6 +1,6 @@
 ## Running the App
 
-Clone the repository, then npm install:
+Clone the repository, then `npm install`:
 * 'react'
 * '@react-three/fiber'
 * '@react-three/drei'
