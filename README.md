@@ -3,14 +3,14 @@
 ## Running the App
 
 Clone the repository, then npm install:
-> react
-> '@react-three/fiber'
-> '@react-three/drei'
-> 'three'
-> 'babel-plugin-glsl/macro'
-> '@react-spring/three'
-> 'bootstrap'
-> '@mui/material'
+* react
+* '@react-three/fiber'
+* '@react-three/drei'
+* 'three'
+* 'babel-plugin-glsl/macro'
+* '@react-spring/three'
+* 'bootstrap'
+* '@mui/material'
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
