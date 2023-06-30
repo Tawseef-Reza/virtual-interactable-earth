@@ -1,9 +1,7 @@
-# Getting Started with Create React App
-
 ## Running the App
 
 Clone the repository, then npm install:
-* react
+* 'react'
 * '@react-three/fiber'
 * '@react-three/drei'
 * 'three'
@@ -11,6 +9,9 @@ Clone the repository, then npm install:
 * '@react-spring/three'
 * 'bootstrap'
 * '@mui/material'
+Then do `npm start`.
+
+# Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
