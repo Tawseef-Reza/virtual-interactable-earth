@@ -5,7 +5,7 @@ Clone the repository, then `npm install`:
 * '@react-three/fiber'
 * '@react-three/drei'
 * 'three'
-* 'babel-plugin-glsl/macro'
+* 'babel-plugin-glsl'
 * '@react-spring/three'
 * 'bootstrap'
 * '@mui/material'
