@@ -1,4 +1,19 @@
-## Running the App
+## What is it?
+
+This project is designed to display a virtual, interactable earth in a space environment.
+There are two main modes of the app, that can be toggled with the **Toggle Sun Button**:
+* Earth Orbiting the Sun Simulation
+* Latitude Longitude Visuals
+
+In the first mode, you are able to view a simulation Earth orbiting the sun, tilted and also rotating on its own axis.
+
+The second mode allows you to both:
+* Click on the Earth and get the latitude and longitude of that cursor position on the globe.
+* Submit a latitude and longitude and find out where those coordinates are on Earth.
+
+Within the second mode, you can toggle freemove: which allows you to move your camera freely when true, and locks your camera to the cursor position when false.
+
+## Running the App Locally
 
 Clone the repository, then `npm install`:
 * 'react'
