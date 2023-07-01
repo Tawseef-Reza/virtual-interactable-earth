@@ -18,7 +18,6 @@ function App() {
 	const [lonInput, setLonInput] = useState('')
 	const [latInput, setLatInput] = useState('')
 
-	const [currentRot, setCurrentRot] = useState(0)
 	const [lonLatSub, setLonLatSub] = useState([0, 0])
 	const [isFree, setIsFree] = useState(true)
 	const [sun, setSun] = useState(true);
@@ -148,10 +147,10 @@ function App() {
 			isFree ? 
 				<PerspectiveCamera
 				makeDefault
-				position={sun ? [0,500,-500 ] : [0, 0 , -100 * EARTH_SCALE]}
+				position={sun ? [500,500,-500 ] : [0, 0 , -100 * EARTH_SCALE]}
 				fov={60}
 				zoom={1.0}
-				far = {6000}
+				far = {8000}
 				/>
 				:
 				<animated.group position={cameraSpring.position}>
@@ -184,8 +183,8 @@ function App() {
 			setLonLatSub = {setLonLatSub} 
 			path = 'models/earth.gltf' 
 			position = {[0, 0, 0]} 
-			currentRot = {currentRot}
-			rotation = {[0, Math.PI * 3 / 2, 0]}
+			
+			rotation = {[sun ? DEG2RAD * 30 : 0, Math.PI * 3 / 2, 0]}
 			scale={EARTH_SCALE}/>
 			
 			<axesHelper scale={100} /> 
