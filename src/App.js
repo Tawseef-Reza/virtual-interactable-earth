@@ -2,6 +2,7 @@ import './App.css';
 import CustomCamera from './objects/CustomCamera';
 import Model from './objects/Model'
 import StarryNight from './objects/StarryNight';
+import Sun from './objects/Sun'
 import { Canvas } from "@react-three/fiber";
 import { Environment, OrbitControls} from "@react-three/drei";
 import { useState } from "react";
@@ -189,12 +190,8 @@ function App() {
 			
 			<axesHelper scale={100} /> 
 			{sun ? 
-			<mesh scale={EARTH_SCALE * 40} position={[500, 0, 0]}>
-				<pointLight intensity={0.8}/>
-
-				<sphereGeometry attach={'geometry'}/>
-				<meshBasicMaterial color={'#d9b541'} attach={'material'}/>
-			</mesh>
+			<Sun EARTH_SCALE = {EARTH_SCALE}
+			/>
 			:
 			<ambientLight color={'#a0f2a5'} intensity={0.3} />
 			}

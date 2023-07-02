@@ -4,7 +4,6 @@ import {shaderMaterial } from '@react-three/drei'
 import * as THREE from 'three'
 import glsl from 'babel-plugin-glsl/macro'
 
-const ROT_SPEED = 0.02;
 
 const PortalMaterial = shaderMaterial(
     {
@@ -87,26 +86,6 @@ const Space = (props) => {
 			/>        
 
 		</mesh>
-	)
-}
-
-const MainStars = (props) => {
-	const ref = useRef()
-	useFrame((state, delta) => {
-        ref.current.rotation.y += (delta * ROT_SPEED);
-    })
-	return (
-		<group  position={[500, 0, 0]} ref = {ref}>
-			<points  >
-				<sphereBufferGeometry  args={[1500, 8, 4]} />
-				<pointsMaterial side={THREE.DoubleSide} color={0xffffff} args={[
-					{
-						size: 10,
-						sizeAttenuation: true
-					}
-				]} attach={'material'}/>
-			</points>
-		</group>
 	)
 }
 
