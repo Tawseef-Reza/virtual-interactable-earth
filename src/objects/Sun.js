@@ -21,10 +21,11 @@ const SunMaterial = shaderMaterial(
 		void main() {
 		
 			vec3 pos = position;
-			float extent = 1.0;
+			float extent = 2.0;
+            float speedUp = 5.0;
 			vec4 modelPosition = modelMatrix * vec4(pos, 1.0);
-			// modelPosition.y += sin(modelPosition.x * 1.0 + uTime) * extent;
-			// modelPosition.y += sin(modelPosition.z * 1.0 + uTime) * extent;
+			modelPosition.y += sin(modelPosition.x * 1.0 + uTime * speedUp) * extent;
+			modelPosition.x += sin(modelPosition.z * 1.0 + uTime * speedUp) * extent;
 			
 			// vZ = ((modelPosition.y - 100.0) / (1.0 * extent) - 0.9);
 			vec4 viewPosition = viewMatrix * modelPosition;
@@ -37,6 +38,7 @@ const SunMaterial = shaderMaterial(
 	`,
 	glsl`
         #define M_PI 3.14159265359
+		precision mediump float;
 
         //
         // Description : Array and textureless GLSL 2D/3D/4D simplex 
@@ -210,7 +212,7 @@ const SunMaterial = shaderMaterial(
         
         void main()
         {
-            vec2 uvExtra = vUv;
+            vec2 uvExtra = vUv * 2.0;
         
             float t = uTime * 0.1;
         
@@ -262,10 +264,10 @@ const Sun = (props) => {
 		ref.current.uTime = 1 * clock.getElapsedTime()
 	})
 	return (
-		<mesh scale={props.EARTH_SCALE * 100} 
+		<mesh 
             position={[500, 0, 0]}>
-            <pointLight intensity={0.3}/>
-            <sphereGeometry attach={'geometry'}/>
+            <pointLight intensity={1.0}/>
+            <sphereGeometry attach={'geometry'} args={[100, 20, 20]}/>
             <sunMaterial ref = {ref} attach={'material'}/>
         </mesh>
 	)
