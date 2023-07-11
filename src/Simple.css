@@ -1,0 +1,27 @@
+.App {
+    width: 100vw;
+    height: 100vh;
+}
+
+.input-field {
+    position: absolute;
+    background-color: white;
+    width: 20vw;
+    top: 10%;
+    right: 6%;
+    z-index: 1;
+}
+
+/* .input-field .MuiInputBase-input {
+    color: white !important;
+    font-weight: 600;
+}
+
+.input-field .MuiInputBase-input::placeholder {
+    color: white !important;
+    font-weight: 600;
+} */
+
+.lat, .lon {
+    width: 100%;
+}

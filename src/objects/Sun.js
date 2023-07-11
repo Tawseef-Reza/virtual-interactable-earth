@@ -21,8 +21,8 @@ const SunMaterial = shaderMaterial(
 		void main() {
 		
 			vec3 pos = position;
-			float extent = 2.0;
-            float speedUp = 5.0;
+			float extent = 3.0;
+            float speedUp = 2.0;
 			vec4 modelPosition = modelMatrix * vec4(pos, 1.0);
 			modelPosition.y += sin(modelPosition.x * 1.0 + uTime * speedUp) * extent;
 			modelPosition.x += sin(modelPosition.z * 1.0 + uTime * speedUp) * extent;

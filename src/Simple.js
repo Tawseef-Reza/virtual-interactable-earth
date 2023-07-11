@@ -1,4 +1,4 @@
-import './App.css';
+import './Simple.css';
 import Model from './objects/Model'
 import Earth from './objects/Earth';
 import EarthExtra from './objects/EarthExtra';
@@ -16,14 +16,13 @@ var RAD2DEG = 180 / Math.PI
 var DEG2RAD = Math.PI / 180
 const EARTH_SCALE = 1;
 const CURSOR_SCALE = 1.2;
-function App() {
+function Simple() {
 	
 	const [lonInput, setLonInput] = useState('')
 	const [latInput, setLatInput] = useState('')
 
 	const [lonLatSub, setLonLatSub] = useState([0, 0])
 	const [isFree, setIsFree] = useState(true)
-	const [sun, setSun] = useState(true);
 	const cameraSpring = useSpring({
 		position: Object.values(PolarToCartesian(lonLatSub[0], lonLatSub[1], 100 * EARTH_SCALE))
 	})
@@ -120,23 +119,10 @@ function App() {
 					<div className='col-md-12 p-0'>
 						<Button
 						onClick={() => {
-							if (!sun)
 							setIsFree(val => !val)
 						}}
 						>
 							{`Toggle FreeMove: ${isFree}`}
-						</Button>
-					</div>
-				</div>
-				<div className='row'>
-					<div className='col-md-12 p-0'>
-						<Button
-						onClick={() => {
-							setSun(val => !val)
-							setIsFree(true)
-						}}
-						>
-							{`Toggle Sun: ${sun}`}
 						</Button>
 					</div>
 				</div>
@@ -152,7 +138,7 @@ function App() {
 			isFree ? 
 				<PerspectiveCamera
 				makeDefault
-				position={sun ? [500,500,-500 ] : [0, 0 , -100 * EARTH_SCALE]}
+				position={[0, 0 , -100 * EARTH_SCALE]}
 				fov={60}
 				zoom={1.0}
 				far = {8000}
@@ -163,50 +149,40 @@ function App() {
 					makeDefault
 					fov={60}
 					zoom={1.0}
-					far = {6000}
+					far = {8000}
 					/>
 				</animated.group>
 			}
-			{/* : [0, 0, -100 * EARTH_SCALE]} */ }
-			<OrbitControls target={sun ? [500, 0, 0] : [0, 0, 0]}/>
+			<OrbitControls target={[0, 0, 0]}/>
 			<Cursor path = 'models/cursor.gltf' 
 			position = {cursorSpringPos.position}
 			scale = {CURSOR_SCALE}
 			rotation = {cursorSpringRot.rotation}/>
 
-			{sun ? 
-			null 
-			:
-			<animated.pointLight 
+			{<animated.pointLight 
 			position={lightSpringPos.position}
 			intensity={1.0} 
 			/> 
 			}
 			
 			<EarthExtra
-			rotating = {sun}
+			rotating = {false}
 			setLonLatSub = {setLonLatSub} 
 			path = 'models/earth.gltf' 
 			position = {[0, 0, 0]} 
 			
-			rotation = {[sun ? DEG2RAD * 30 : 0, Math.PI * 3 / 2, 0]}
+			rotation = {[0, Math.PI * 3 / 2, 0]}
 			scale={EARTH_SCALE}/>
 			
 			<axesHelper scale={100} /> 
-			{sun ? 
-			<Sun EARTH_SCALE = {EARTH_SCALE}
-			/>
-			:
 			<ambientLight color={'#a0f2a5'} intensity={0.3} />
-			}
 			
-			{/*  */}
 			
 		</Canvas>
     	</div>
 	);
 }
 
-export default App;
+export default Simple;
 
   

@@ -60,9 +60,7 @@ extend({ PortalMaterial })
 const StarryNight = () => {
     return (
 		<group>
-			<Space />
-			{/* <MainStars /> */}
-			
+			<Space />			
 		</group>
 		
         

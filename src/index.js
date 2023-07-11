@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import App from './App';
+import Simple from './Simple';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
