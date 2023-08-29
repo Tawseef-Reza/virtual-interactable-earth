@@ -16,6 +16,7 @@ Within the second mode, you can toggle freemove: which allows you to move your c
 ## Running the App Locally
 
 Clone the repository, then do `npm install`:
+
 Libraries I used:
 * 'react'
 * '@react-three/fiber'
